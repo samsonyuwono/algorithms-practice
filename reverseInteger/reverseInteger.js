@@ -1,7 +1,7 @@
 var reverse = function (x) {
-  //   if (x === 0) {
-  //     return 0;
-  //   }
+  if (x === 0) {
+    return 0;
+  }
 
   let reverseArr = [];
   let xArr = x.toString().split("");
@@ -12,9 +12,7 @@ var reverse = function (x) {
     }
     reverseArr.push(xArr[i]);
   }
-  if (parseInt(reverseArr.join("")) > 0x7fffffff) {
-    return 0;
-  }
+
   return parseInt(reverseArr.join(""));
 };
 
