@@ -4,7 +4,7 @@ function chunk(arr, size) {
 
   while (index < arr.length) {
     chunkArr.push(arr.slice(index, index + size));
-    console.log(arr.slice(index, index + size));
+    // console.log(arr.slice(index, index + size));
     index += size;
   }
   return chunkArr;
