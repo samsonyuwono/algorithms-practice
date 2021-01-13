@@ -1,13 +1,13 @@
-// var createCharMap = function (str) {
-//   let charMap = {};
-//   for (let char of str.replace(/\s+/g, "").toLowerCase()) {
-//     if (charMap[char]) {
-//       charMap[char]++;
-//     } else {
-//       charMap[char] = 1;
-//     }
-//   }
-// };
+var createCharMap = function (str) {
+  let charMap = {};
+  for (let char of str.replace(/\s+/g, "").toLowerCase()) {
+    if (charMap[char]) {
+      charMap[char]++;
+    } else {
+      charMap[char] = 1;
+    }
+  }
+};
 
 var validAnagrams = function (s, t) {
   //   const aCharMap = createCharMap(s);
@@ -15,6 +15,7 @@ var validAnagrams = function (s, t) {
 
   let aCharMap = {};
   let bCharMap = {};
+
   for (let char of s.replace(/\s+/g, "").toLowerCase()) {
     aCharMap[char] ? aCharMap[char]++ : (aCharMap[char] = 1);
   }
@@ -22,10 +23,10 @@ var validAnagrams = function (s, t) {
   for (let char of t.replace(/\s+/g, "").toLowerCase()) {
     bCharMap[char] ? bCharMap[char]++ : (bCharMap[char] = 1);
   }
-  console.log("aCharMap>>>", aCharMap);
-  console.log(bCharMap);
+  if (Object.keys(aCharMap).length !== Object.keys(bCharMap).length) {
+    return false;
+  }
   for (let k in aCharMap) {
-    console.log(k);
     if (aCharMap[k] !== bCharMap[k]) {
       return false;
     }
