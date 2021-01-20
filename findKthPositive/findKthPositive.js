@@ -1,22 +1,15 @@
 var findKthPositive = function (arr, k) {
-  let missingNumbers = [];
-
-  for (let i = 1; i < arr[arr.length - 1]; i++) {
-    //.indexOf returns the position of the elmeent not the element
-    if (arr.indexOf(i) === -1) {
-      missingNumbers.push(i);
-    }
-    //if missing numbers is empty then push k length numbers into missing numbers
-    else if (missingNumbers.length < k) {
-      missingNumbers.push(arr[arr.length - 1] + i);
+  let res = 0;
+  for (let i = 0; i < arr.length; i++) {
+    //if elelement minus index - 1 is larger or equal to k
+    //add index and k then return the result
+    if (arr[i] - i - 1 >= k) {
+      res = i + k;
+      return res;
     }
   }
-
-  missingNumbers.sort(function (a, b) {
-    return a - b;
-  });
-  console.log("missingNumnbers", missingNumbers);
-  return missingNumbers[k - 1];
+  //return if array doesn't have missing numbers and needs to count up to k
+  return arr.length + k;
 };
 
 module.exports = findKthPositive;
